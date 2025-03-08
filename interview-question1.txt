@@ -1,0 +1,65 @@
+company has a collection of content categories, each connected by recommendation links that guide users from one category to another.
+There are category_nodes content categories numbered from 0 to category_nodes - 1. The network of content categories and links forms an undirected tree with category_nodes number of nodes and (category_nodes - 1) number of edges. Each recommendation link has a "viral potential," denoted by viral valli], which can either be 0 or 1.
+More formally, the overall network is represented as follows:
+• category_nodes: the number of content categories
+• category_from, category_to. arrays representing an undirected link between category_from[i] and category_to[i] for 1 ≤ i≤ (category_nodes - 1)
+• viral _vall[]: the viral potential of each recommendation link in the network, which can be either 0 or 1
+Given an integer category_nodes and the network of content categories and recommendation links and the viral potential array.
+The task is to count the number of recommendation sequences of length k denotes as: (r[1], r[2], ..., r[k]), where 0 ≤r≤ category_nodes - 1 for for ≤ i ≤ k, such that the traversal along the shortest paths between consecutive categories starting from r[1] till [k] must include at least 1
+recommendation link with a viral potential = 1 across the
+entire journey.
+Since the answer can be very large, compute it modulo (109 +
+7).
+Note: Since the given network is a tree, so there exists a unique shortest path between any two categories.
+Example
+Consider the following example: category_nodes = 4, K= 2
+• category_from = [0, 0, 2]
+• category_to = [1, 2, 3]
+• viral_val = [1, 1, 0]
+Sample Input For Custom Testing
+STDIN
+FUNCTION
+k = 2
+4 3
+0 1 
+0 2 
+2 3 
+3 
+1 
+1 
+0 
+
+Sample Output
+10
+Explanation
+The following recommendation sequences of length 2 can be formed, each containing at least one recommendation link with a viral potential of 1:
+• (0,1)
+• (0,2)
+• (0,3)
+• (1,0}
+• (1,2)
+• (1,3)
+• (2,0)
+• (2,1)
+• (3,0)
+• (3,1)
+For instance, the recommendation sequence (0, 3) takes the path 0 → 2 → 3, where the recommendation link 2 → 3 has a viral potential of 1. A similar explanation can be provided for each of the sequences.
+Sample Input For Custom Testing:
+3
+2 1
+0 1
+1
+1
+Sample Output
+6
+Explanation
+0
+1
+The following recommendation sequences of length 3 can be formed each containing at least one recommendation link with a viral potential of 1:
+• (0, 0, 1)
+• (0, 1, 0)
+• (0, 1. 1)
+• (1,0, 0)
+• (1,0, 1)
+• (1,1,0)
+Hence, the answer is 6.
